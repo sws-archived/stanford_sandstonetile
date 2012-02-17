@@ -4,6 +4,7 @@ core = 7.x
 version = 6.x-1.x-dev
 
 ; stylesheets[all][] = css/stanford_framework.css
+stylesheets[all][] = css/sandstonetile_custom.css
 stylesheets[all][] = css/flex_textfont_sans.css
 stylesheets[only screen and (max-width: 640px)][] = css/mobile.css
 stylesheets[print][] = css/print.css
