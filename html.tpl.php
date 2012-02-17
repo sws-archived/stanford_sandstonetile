@@ -48,6 +48,7 @@
   <?php print $head; ?>
   <title><?php print $head_title; ?></title>
   <?php print $styles; ?>
+  <!--[if IE 7]><link rel="stylesheet" type="text/css" href="<?php print base_path() . path_to_theme(); ?>/css/ie7.css"><![endif]-->
   <?php print $scripts; ?>
 </head>
 <body class="<?php print $classes; ?>" <?php print $attributes;?>>
