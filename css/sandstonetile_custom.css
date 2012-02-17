@@ -1,0 +1,6 @@
+/*********************
+Drupal-specific CSS
+**********************/
+#site-name a {
+  border-bottom: none;
+}
