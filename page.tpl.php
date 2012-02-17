@@ -87,7 +87,7 @@
       <?php endif; ?>
 
       <?php if ($site_name || $site_slogan): ?>
-        <div id="page_title_area">
+        <div id="header">
           <?php if ($site_name): ?>
             <?php if ($title): ?>
               <div id="site-name"><strong>
@@ -103,7 +103,7 @@
           <?php if ($site_slogan): ?>
             <div id="site-slogan"><?php print $site_slogan; ?></div>
           <?php endif; ?>
-        </div> <!-- /#page_title_area -->
+        </div> <!-- /#header -->
       <?php endif; ?>
 
       <?php print render($page['header']); ?>
