@@ -69,7 +69,16 @@
 
   <div id="page-wrapper"><div id="page">
 
-    <div id="header"><div class="section clearfix">
+    <?php if ($main_menu || $secondary_menu): ?>
+      <div id="top_navbar"><div class="section">
+        <?php print theme('links__system_main_menu', array('links' => $main_menu, 'attributes' => array('id' => 'main-menu', 'class' => array('links', 'inline', 'clearfix')))); ?>
+        <?php //print theme('links__system_secondary_menu', array('links' => $secondary_menu, 'attributes' => array('id' => 'secondary-menu', 'class' => array('links', 'inline', 'clearfix')), 'heading' => t('Secondary menu'))); ?>
+      </div></div> <!-- /.section, /#top_navbar -->
+    <?php endif; ?>
+
+    <div id="content_container">
+
+    <div id="page_title_area"><div class="section clearfix">
 
       <?php if ($logo): ?>
         <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
@@ -78,7 +87,7 @@
       <?php endif; ?>
 
       <?php if ($site_name || $site_slogan): ?>
-        <div id="name-and-slogan">
+        <div id="page_title_area">
           <?php if ($site_name): ?>
             <?php if ($title): ?>
               <div id="site-name"><strong>
@@ -94,23 +103,23 @@
           <?php if ($site_slogan): ?>
             <div id="site-slogan"><?php print $site_slogan; ?></div>
           <?php endif; ?>
-        </div> <!-- /#name-and-slogan -->
+        </div> <!-- /#page_title_area -->
       <?php endif; ?>
 
       <?php print render($page['header']); ?>
-
-    </div></div> <!-- /.section, /#header -->
-
-    <?php if ($main_menu || $secondary_menu): ?>
-      <div id="navigation"><div class="section">
-        <?php print theme('links__system_main_menu', array('links' => $main_menu, 'attributes' => array('id' => 'main-menu', 'class' => array('links', 'inline', 'clearfix')), 'heading' => t('Main menu'))); ?>
-        <?php print theme('links__system_secondary_menu', array('links' => $secondary_menu, 'attributes' => array('id' => 'secondary-menu', 'class' => array('links', 'inline', 'clearfix')), 'heading' => t('Secondary menu'))); ?>
-      </div></div> <!-- /.section, /#navigation -->
-    <?php endif; ?>
-
+    <div id="page_title_leftcontent">
+      <?php print render($page['header_left']); ?>
+    </div> <!-- /#page_title_leftcontent -->
+    <div id="page_title_rightcontent">
+      <?php print render($page['header_right']); ?>
+    </div> <!-- /#page_title_rightcontent -->
+    <div class="page_title_area_lower">
+      <?php print render($page['header_lower']); ?>
     <?php if ($breadcrumb): ?>
-      <div id="breadcrumb"><?php print $breadcrumb; ?></div>
+      <div id="breadcrumb" class="page_title_area_lower_nav"><?php print $breadcrumb; ?></div>
     <?php endif; ?>
+    </div> <!-- /#page_title_area_lower -->
+    </div></div> <!-- /.section, /#page_title_area -->
 
     <?php print $messages; ?>
 
@@ -129,15 +138,9 @@
         <?php print $feed_icons; ?>
       </div></div> <!-- /.section, /#content -->
 
-      <?php if ($page['sidebar_first']): ?>
-        <div id="sidebar-first" class="column sidebar"><div class="section">
-          <?php print render($page['sidebar_first']); ?>
-        </div></div> <!-- /.section, /#sidebar-first -->
-      <?php endif; ?>
-
-      <?php if ($page['sidebar_second']): ?>
-        <div id="sidebar-second" class="column sidebar"><div class="section">
-          <?php print render($page['sidebar_second']); ?>
+      <?php if ($page['sidebar']): ?>
+        <div id="sidebar" class="column sidebar"><div class="section">
+          <?php print render($page['sidebar']); ?>
         </div></div> <!-- /.section, /#sidebar-second -->
       <?php endif; ?>
 
@@ -147,4 +150,4 @@
       <?php print render($page['footer']); ?>
     </div></div> <!-- /.section, /#footer -->
 
-  </div></div> <!-- /#page, /#page-wrapper -->
+  </div></div></div> <!-- /#content_container, /#page, /#page-wrapper -->
